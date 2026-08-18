@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>For You, My Love ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #ff758c 0%, #ff7eb3 100%);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+            color: #fff;
+            position: relative;
+        }
+
+        /* Floating background hearts */
+        .hearts-container {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: 1;
+            pointer-events: none;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(255, 255, 255, 0.4);
+            font-size: 20px;
+            animation: floatUp 6s linear infinite;
+        }
+
+        @keyframes floatUp {
+            0% {
+                transform: translateY(100vh) scale(0.5);
+                opacity: 0;
+            }
+            50% {
+                opacity: 0.8;
+            }
+            100% {
+                transform: translateY(-10vh) scale(1.2);
+                opacity: 0;
+            }
+        }
+
+        /* Side Photos Layout */
+        .side-photo {
+            position: absolute;
+            width: 140px;
+            height: 140px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 4px solid rgba(255, 255, 255, 0.6);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.25);
+            z-index: 3;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .left-photo {
+            left: 5%;
+        }
+
+        .right-photo {
+            right: 5%;
+        }
+
+        /* Main Card Container */
+        .card {
+            background: rgba(255, 255, 255, 0.15);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.2);
+            text-align: center;
+            max-width: 500px;
+            width: 90%;
+            z-index: 2;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h1 {
+            font-size: 2.2rem;
+            margin-bottom: 15px;
+            color: #fff;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.1);
+        }
+
+        p {
+            font-size: 1.1rem;
+            line-height: 1.6;
+            margin-bottom: 25px;
+            color: #f9f9f9;
+        }
+
+        /* Interactive Buttons / Notes */
+        .notes-section {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .note-btn {
+            background: rgba(255, 255, 255, 0.25);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 50px;
+            color: white;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        }
+
+        .note-btn:hover {
+            background: rgba(255, 255, 255, 0.4);
+            transform: translateY(-2px);
+            box-shadow: 0 6px 12px rgba(0,0,0,0.1);
+        }
+
+        .hidden-message {
+            margin-top: 10px;
+            font-size: 0.95rem;
+            background: rgba(0, 0, 0, 0.15);
+            padding: 12px;
+            border-radius: 10px;
+            display: none;
+            animation: slideDown 0.4s ease;
+        }
+
+        @keyframes slideDown {
+            from { opacity: 0; transform: translateY(-10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .footer {
+            margin-top: 25px;
+            font-size: 0.9rem;
+            opacity: 0.8;
+        }
+
+        /* Responsive design for smaller screens/phones */
+        @media (max-width: 900px) {
+            body {
+                flex-direction: column;
+                padding: 20px;
+            }
+            .side-photo {
+                position: static;
+                margin-bottom: 15px;
+                width: 100px;
+                height: 100px;
+            }
+            .card {
+                max-width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Floating Hearts Background -->
+    <div class="hearts-container" id="heartsContainer"></div>
+
+    <!-- Left Photo -->
+    <img src="aj1.jpg" alt="Left Photo" class="side-photo left-photo">
+
+    <!-- Main Card -->
+    <div class="card">
+        <h1>For the Prettiest, Gorgeous, Stunning, Hot, Cute, Beautiful, Caring, Loving, Sweet, Kindest Woman Everrr!!!!❤️</h1>
+        <p>I wanted to make something special just for you. Its' been a year since we know each other my loveeeeeee!!!</p>
+        
+        <div class="notes-section">
+            <div>
+                <button class="note-btn" onclick="toggleMessage('msg1')">💌 Open when you miss me</button>
+                <div id="msg1" class="hidden-message">My loveeeeeee!!! i will you know what i do naman palagi pag hindi tayo nag uusap or hindi mag kasama. andito lang ako sa bahay nag lalaro, natutulog, nakain mag chat ka lang mag r-reply agad ako palagi imissyousoooooooososososomuchhhh mwaaaaa!!!!!!</div>
+            </div>
+
+            <div>
+                <button class="note-btn" onclick="toggleMessage('msg2')">✨ Open when you need a smile</button>
+                <div id="msg2" class="hidden-message">If you don't feel well remember na may pogi kang bf na bibigyan ka ng maraming kiss, hug, and masarap na food palagi.</div>
+            </div>
+
+            <div>
+                <button class="note-btn" onclick="toggleMessage('msg3')">🌹 Open when you need reassurance</button>
+                <div id="msg3" class="hidden-message">No matter what happens, my love, you will always be my number one. You are my one and only baby, my love, and the prettiest woman ever. Kahit sino pang itapat mo sa akin, at kahit meron tayong di-pagkakaintindihan, I will always choose you without hesitation. I love you so, so, so, so, so much! Mwaaaa!.</div>
+            </div>
+        </div>
+
+        <div class="footer">
+            Forever & Always yours ✨
+        </div>
+    </div>
+
+    <!-- Right Photo -->
+    <img src="aj.jpg" alt="Right Photo" class="side-photo right-photo">
+
+    <script>
+        // Generate floating hearts dynamically
+        function createHeart() {
+            const container = document.getElementById('heartsContainer');
+            const heart = document.createElement('div');
+            heart.classList.add('heart');
+            heart.innerHTML = '❤️';
+            
+            heart.style.left = Math.random() * 100 + 'vw';
+            heart.style.animationDuration = (Math.random() * 3 + 4) + 's';
+            heart.style.fontSize = (Math.random() * 15 + 15) + 'px';
+            
+            container.appendChild(heart);
+            
+            setTimeout(() => {
+                heart.remove();
+            }, 7000);
+        }
+
+        setInterval(createHeart, 400);
+
+        // Toggle interactive messages
+        function toggleMessage(id) {
+            const messageBox = document.getElementById(id);
+            if (messageBox.style.display === 'block') {
+                messageBox.style.display = 'none';
+            } else {
+                document.querySelectorAll('.hidden-message').forEach(box => box.style.display = 'none');
+                messageBox.style.display = 'block';
+            }
+        }
+    </script>
+</body>
+</html>
